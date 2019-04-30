@@ -1,0 +1,140 @@
+
+Mudanças iniciaram em 2019-04-29 15:44:25.752002.
+Valor original: None.
+Valor final: {'id': 12, 'nome': 'Ian'}.
+Mudanças finalizaram em 2019-04-29 15:44:25.753553.
+
+Mudanças iniciaram em 2019-04-29 15:44:28.328879.
+Valor original: None.
+Valor final: {'id': 120, 'nome': 'Jkan'}.
+Mudanças finalizaram em 2019-04-29 15:44:28.329755.
+
+Mudanças iniciaram em 2019-04-29 15:44:30.945726.
+Valor original: None.
+Valor final: {'id': 105, 'nome': 'Ramiro'}.
+Mudanças finalizaram em 2019-04-29 15:44:30.946865.
+
+Mudanças iniciaram em 2019-04-29 15:44:33.239570.
+Valor original: None.
+Valor final: {'id': 1, 'nome': 'Games'}.
+Mudanças finalizaram em 2019-04-29 15:44:33.240777.
+
+Mudanças iniciaram em 2019-04-29 15:44:36.237798.
+Valor original: None.
+Valor final: {'carga_horaria': 105, 'id': 12, 'id_coordenador': 105, 'nome': 'Ia', 'plano_ensino': 'DJSJSNDKADMSKM', 'status': 1}.
+Mudanças finalizaram em 2019-04-29 15:44:36.238967.
+
+Mudanças iniciaram em 2019-04-29 15:44:38.677730.
+Valor original: None.
+Valor final: {'ano': 2019, 'data': '23/01/2019', 'id': 12, 'id_curso': 1, 'id_disciplina': 12, 'id_professor': 120, 'nome': 'JAJA', 'semestre': 2, 'turma': '3C'}.
+Mudanças finalizaram em 2019-04-29 15:44:38.678929.
+
+Mudanças iniciaram em 2019-04-29 15:44:41.928320.
+Valor original: None.
+Valor final: {'dt_solicitacao': 12, 'id': 123, 'id_aluno': 12, 'id_coordenador': 105, 'id_disciplina_ofertada': 12, 'status': 1}.
+Mudanças finalizaram em 2019-04-29 15:44:41.929295.
+
+Mudanças iniciaram em 2019-04-29 15:44:58.532837.
+Valor original: {'ano': 2019, 'data': '23/01/2019', 'id': 12, 'id_curso': 1, 'id_disciplina': 12, 'id_professor': 120, 'nome': 'JAJA', 'semestre': 2, 'turma': '3C'}.
+Valor final: None.
+Mudanças finalizaram em 2019-04-29 15:44:58.532954.
+
+Mudanças iniciaram em 2019-04-29 15:45:00.834475.
+Valor original: {'id': 105, 'nome': 'Ramiro'}.
+Valor final: None.
+Mudanças finalizaram em 2019-04-29 15:45:00.834713.
+
+Mudanças iniciaram em 2019-04-29 15:47:55.000724.
+Valor original: None.
+Valor final: {'id': 105, 'nome': 'Ramiro'}.
+Mudanças finalizaram em 2019-04-29 15:47:55.002387.
+
+Mudanças iniciaram em 2019-04-29 15:48:32.453195.
+Valor original: None.
+Valor final: {'id': 105, 'nome': 'Ramiro'}.
+Mudanças finalizaram em 2019-04-29 15:48:32.454774.
+
+Mudanças iniciaram em 2019-04-29 15:48:37.134974.
+Valor original: None.
+Valor final: {'carga_horaria': 105, 'id': 12, 'id_coordenador': 105, 'nome': 'Ia', 'plano_ensino': 'DJSJSNDKADMSKM', 'status': 'ativa'}.
+Mudanças finalizaram em 2019-04-29 15:48:37.135777.
+
+Mudanças iniciaram em 2019-04-29 15:49:46.245022.
+Valor original: None.
+Valor final: {'id': 12, 'nome': 'Ian'}.
+Mudanças finalizaram em 2019-04-29 15:49:46.246591.
+
+Mudanças iniciaram em 2019-04-29 15:49:49.515459.
+Valor original: None.
+Valor final: {'id': 120, 'nome': 'Jkan'}.
+Mudanças finalizaram em 2019-04-29 15:49:49.516192.
+
+Mudanças iniciaram em 2019-04-29 15:49:51.784999.
+Valor original: None.
+Valor final: {'id': 105, 'nome': 'Ramiro'}.
+Mudanças finalizaram em 2019-04-29 15:49:51.786400.
+
+Mudanças iniciaram em 2019-04-29 15:49:54.479722.
+Valor original: None.
+Valor final: {'id': 1, 'nome': 'Games'}.
+Mudanças finalizaram em 2019-04-29 15:49:54.480737.
+
+Mudanças iniciaram em 2019-04-29 15:49:56.844196.
+Valor original: None.
+Valor final: {'carga_horaria': 105, 'id': 12, 'id_coordenador': 105, 'nome': 'Ia', 'plano_ensino': 'DJSJSNDKADMSKM', 'status': 'ativa'}.
+Mudanças finalizaram em 2019-04-29 15:49:56.845309.
+
+Mudanças iniciaram em 2019-04-29 15:49:58.895069.
+Valor original: None.
+Valor final: {'ano': 2019, 'data': '23/01/2019', 'id': 12, 'id_curso': 1, 'id_disciplina': 12, 'id_professor': 120, 'nome': 'JAJA', 'semestre': 2, 'turma': '3C'}.
+Mudanças finalizaram em 2019-04-29 15:49:58.896225.
+
+Mudanças iniciaram em 2019-04-29 15:50:01.253641.
+Valor original: None.
+Valor final: {'dt_solicitacao': 12, 'id': 123, 'id_aluno': 12, 'id_coordenador': 105, 'id_disciplina_ofertada': 12, 'status': 'solicitado'}.
+Mudanças finalizaram em 2019-04-29 15:50:01.254867.
+
+Mudanças iniciaram em 2019-04-29 15:50:13.864276.
+Valor original: {'id': 105, 'nome': 'Ramiro'}.
+Valor final: None.
+Mudanças finalizaram em 2019-04-29 15:50:13.864493.
+
+Mudanças iniciaram em 2019-04-29 15:53:51.328349.
+Valor original: None.
+Valor final: {'id': 12, 'nome': 'Ian'}.
+Mudanças finalizaram em 2019-04-29 15:53:51.330022.
+
+Mudanças iniciaram em 2019-04-29 15:53:53.804536.
+Valor original: None.
+Valor final: {'id': 120, 'nome': 'Jkan'}.
+Mudanças finalizaram em 2019-04-29 15:53:53.805293.
+
+Mudanças iniciaram em 2019-04-29 15:53:56.804827.
+Valor original: None.
+Valor final: {'id': 105, 'nome': 'Ramiro'}.
+Mudanças finalizaram em 2019-04-29 15:53:56.806008.
+
+Mudanças iniciaram em 2019-04-29 15:53:59.809153.
+Valor original: None.
+Valor final: {'id': 1, 'nome': 'Games'}.
+Mudanças finalizaram em 2019-04-29 15:53:59.810361.
+
+Mudanças iniciaram em 2019-04-29 15:54:02.871428.
+Valor original: None.
+Valor final: {'carga_horaria': 123, 'id': 12, 'id_coordenador': 105, 'nome': 'Ia', 'plano_ensino': 'DJSJSNDKADMSKM', 'status': 'ativa'}.
+Mudanças finalizaram em 2019-04-29 15:54:02.872463.
+
+Mudanças iniciaram em 2019-04-29 15:54:05.928449.
+Valor original: None.
+Valor final: {'ano': 2019, 'data': '23/01/2019', 'id': 12, 'id_curso': 1, 'id_disciplina': 12, 'id_professor': 120, 'nome': 'JAJA', 'semestre': 2, 'turma': '3C'}.
+Mudanças finalizaram em 2019-04-29 15:54:05.929610.
+
+Mudanças iniciaram em 2019-04-29 15:54:08.165080.
+Valor original: None.
+Valor final: {'dt_solicitacao': 12, 'id': 123, 'id_aluno': 12, 'id_coordenador': 105, 'id_disciplina_ofertada': 12, 'status': 'solicitado'}.
+Mudanças finalizaram em 2019-04-29 15:54:08.166322.
+
+Mudanças iniciaram em 2019-04-29 15:54:11.480208.
+Valor original: {'id': 105, 'nome': 'Ramiro'}.
+Valor final: {'id': 10, 'nome': 'Ramiro'}.
+Mudanças finalizaram em 2019-04-29 15:54:11.480497.
