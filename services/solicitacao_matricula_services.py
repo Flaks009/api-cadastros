@@ -1,6 +1,3 @@
-from services.aluno_services import alunos_db
-from services.coordenador_services import coordenadores_db
-from services.disciplina_ofertada_services import disciplinas_ofertadas_db
 from model.solicitacao_matricula import Solicitacao_matricula
 from infra.log import Log
 from dao.solicitacao_matricula_dao import \
@@ -11,11 +8,15 @@ from dao.solicitacao_matricula_dao import \
         atualizar as atualizar_dao
 
 tipo_status = [0, 'solicitado', 'indeferido', 'matriculado', 'desistente', 'aprovado', 'reprovado']
-solicitacao_matricula_db = []
+
 
 class SolicitacaoJaExiste(Exception):
     pass
+
 class ErroReferencia(Exception):
+    pass
+
+class SolicitacaoNaoExiste(Exception):
     pass
 
 def listar():
@@ -57,10 +58,12 @@ def localizar(matricula):
 
 def remover(matricula):
     if localizar(matricula):
-        return remover_dao(matricula)
-    return None
+        remover_dao(matricula)
+        return listar()
+    raise SolicitacaoNaoExiste()
 
 def atualiza(localizador, matricula, id_aluno, id_disciplina_ofertada, id_coordenador, dt_solicitacao, status):
     if localizar(matricula):
-        return atualizar_dao(localizador, matricula, id_aluno, id_disciplina_ofertada, id_coordenador, dt_solicitacao, status)
-    return None
+        atualizar_dao(localizador, matricula, id_aluno, id_disciplina_ofertada, id_coordenador, dt_solicitacao, status)
+        return localizar(matricula)
+    raise SolicitacaoNaoExiste

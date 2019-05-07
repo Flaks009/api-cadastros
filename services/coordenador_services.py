@@ -8,9 +8,10 @@ from dao.coordenador_dao import \
         atualizar as atualizar_dao
 
 
-coordenadores_db = []
-
 class CoordenadorJaExiste(Exception):
+    pass
+
+class CoordenadorNaoExiste(Exception):
     pass
 
 def listar():
@@ -30,7 +31,9 @@ def localizar(matricula):
 
 def remover(matricula):
     if localizar(matricula):
-        return remover_dao(matricula)
+        remover_dao(matricula)
+        return listar()
+    raise CoordenadorNaoExiste()
 
 def remove_coordenador_disciplina(id_coordenador):
         from disciplina_api import disciplinas_db
@@ -48,8 +51,9 @@ def remove_coordenador_solicitacao(id_coordenador):
 
 def atualizar(localizador, matricula, nome):
     if localizar(localizador):
-        return atualizar_dao(localizador, matricula, nome)
-    return None
+        atualizar_dao(localizador, matricula, nome)
+        return localizar(matricula)
+    return CoordenadorNaoExiste
 
 def atualiza_coordenador_disciplina(localizador, matricula):
         from services.disciplina_services import disciplinas_db

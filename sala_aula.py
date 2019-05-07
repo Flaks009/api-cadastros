@@ -6,7 +6,7 @@ from curso_api import curso_app
 from disciplina_api import disciplina_app
 from disciplina_ofertada_api import disciplina_ofertada_app
 from solicitacao_matricula_api import solicitacao_matricula_app
-from relatorio_api import relatorio_app
+#from relatorio_api import relatorio_app
 from infra.db import cria_db
 
 app = Flask(__name__)
@@ -18,7 +18,7 @@ app.register_blueprint(coordenador_app)
 app.register_blueprint(disciplina_app)
 app.register_blueprint(disciplina_ofertada_app)
 app.register_blueprint(solicitacao_matricula_app)
-app.register_blueprint(relatorio_app)
+#app.register_blueprint(relatorio_app)
 
 @app.route('/')
 def all():

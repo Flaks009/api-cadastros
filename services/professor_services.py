@@ -7,9 +7,11 @@ from dao.professor_dao import \
         remover as remover_dao, \
         atualizar as atualizar_dao
 
-professores_db = []
 
 class ProfessorJaExiste(Exception):
+    pass
+
+class ProfessorNaoExiste(Exception):
     pass
 
 def listar():
@@ -30,8 +32,9 @@ def localizar(matricula):
 
 def remover(matricula):
     if localizar_dao(matricula):
-        return remover_dao(matricula)
-    return None
+        remover_dao(matricula)
+        return listar()
+    raise ProfessorNaoExiste()
 
 def remove_professor_disciplina_ofertada(matricula):
     from disciplina_ofertada_api import disciplinas_ofertadas_db
@@ -42,8 +45,9 @@ def remove_professor_disciplina_ofertada(matricula):
 
 def atualizar(localizador, matricula, nome):
     if localizar(localizador):
-        return atualizar_dao(localizador, matricula, nome)
-    return None
+        atualizar_dao(localizador, matricula, nome)
+        return localizar(matricula)
+    raise ProfessorNaoExiste()
 
 def atualiza_professores_db_disciplina_ofertada(localizador, matricula):
     from disciplina_ofertada_api import disciplinas_ofertadas_db

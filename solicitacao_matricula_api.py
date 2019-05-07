@@ -2,6 +2,7 @@ from flask import Flask, jsonify, request, Blueprint
 from services.solicitacao_matricula_services import *
 from infra.to_dict import to_dict, to_dict_list
 from infra.validacao import validar_campos
+import sqlite3
 
 solicitacao_matricula_app = Blueprint('solicitacao_matricula_app', __name__, template_folder='templates')
 
@@ -73,5 +74,11 @@ def atualiza_solicitacao_matricula(id_solicitacao_matricula):
                 return jsonify(to_dict_list(atualizado))
 
         except SolicitacaoJaExiste:  
+                return '', 409
+        
+        except SolicitacaoNaoExiste:
+                return '', 404
+        
+        except sqlite3.IntegrityError:
                 return '', 409
 

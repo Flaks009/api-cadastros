@@ -1,6 +1,3 @@
-from services.professor_services import professores_db
-from services.curso_services import cursos_db
-from services.disciplina_services import disciplinas_db
 from model.disciplina_ofertada import Disciplina_ofertada
 from infra.log import Log
 from dao.disciplina_ofertada_dao import \
@@ -19,6 +16,10 @@ class DisciplinaOfertadaJaExiste(Exception):
 
 class ErroReferencia(Exception):
     pass
+
+class DisciplinaOfertadaNaoExiste(Exception):
+    pass
+
 
 def listar():
     return listar_dao()
@@ -56,8 +57,9 @@ def localizar(matricula):
 
 def remover(matricula):
     if localizar_dao(matricula):
-        return remover_dao(matricula)
-    return None
+        remover_dao(matricula)
+        return listar()
+    raise DisciplinaOfertadaNaoExiste()
 
 def remove_disciplina_ofertada_solicitacao_matricula(matricula):
     from solicitacao_matricula_api import solicitacao_matricula_db
@@ -68,8 +70,9 @@ def remove_disciplina_ofertada_solicitacao_matricula(matricula):
 
 def atualizar(localizador, matricula, id_disciplina, id_professor, id_curso, ano, semestre, turma, data):
     if localizar_dao(localizador):
-        return atualizar_dao(localizador, matricula, id_disciplina, id_professor, id_curso, ano, semestre, turma, data)
-    return None
+        atualizar_dao(localizador, matricula, id_disciplina, id_professor, id_curso, ano, semestre, turma, data)
+        return localizar(matricula)
+    raise DisciplinaOfertadaNaoExiste()
 
 def atualiza_disciplina_ofertada_solicitacao_matricula(localizador, matricula):
         from solicitacao_matricula_api import solicitacao_matricula_db

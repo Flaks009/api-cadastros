@@ -1,5 +1,4 @@
 from model.disciplina import Disciplina
-from services.coordenador_services import coordenadores_db
 from infra.log import Log
 from dao.disciplina_dao import \
         listar as listar_dao, \
@@ -10,7 +9,7 @@ from dao.disciplina_dao import \
 
 
 tipo_status = ['inativa', 'ativa']
-disciplinas_db = []
+
 
 class DisciplinaJaExiste(Exception):
     pass
@@ -18,6 +17,8 @@ class DisciplinaJaExiste(Exception):
 class ErroReferencia(Exception):
     pass
 
+class DisciplinaNaoExiste(Exception):
+    pass
 
 def listar():
     return listar_dao()
@@ -45,8 +46,9 @@ def localizar(matricula):
 
 def remover(matricula):
     if localizar(matricula):
-        return remover_dao(matricula)
-    return None
+        remover_dao(matricula)
+        return listar()
+    raise DisciplinaNaoExiste()
 
 def remove_disciplina_disciplina_ofertada(matricula):
     from services.disciplina_ofertada_services import disciplinas_ofertadas_db
@@ -57,8 +59,9 @@ def remove_disciplina_disciplina_ofertada(matricula):
 
 def atualizar(localizador, matricula, nome, status, plano_ensino, carga_horaria, id_coordenador):
     if localizar(localizador):
-        return atualizar_dao(localizador, matricula, nome, status, plano_ensino, carga_horaria, id_coordenador)
-    return None
+        atualizar_dao(localizador, matricula, nome, status, plano_ensino, carga_horaria, id_coordenador)
+        return localizar(matricula)
+    raise DisciplinaNaoExiste()
 
 def atualiza_disciplina_disciplina_ofertada(localizador, matricula):
         from services.disciplina_ofertada_services import disciplinas_ofertadas_db

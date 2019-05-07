@@ -7,16 +7,18 @@ from dao.aluno_dao import \
         remover as remover_dao, \
         atualizar as atualizar_dao
 
-alunos_db = []
-
 class AlunoJaExiste(Exception):
         pass
+
+class AlunoNaoExiste(Exception):
+        pass
+
 
 def listar():
     return listar_dao()
 
 def cria(id, nome):
-    if localizar_dao(id) != None:
+    if localizar(id) != None:
             raise AlunoJaExiste()    
     log = Log(None)    
     criado = Aluno(id, nome)
@@ -28,9 +30,10 @@ def localizar(matricula):
     return localizar_dao(matricula)
 
 def remover(matricula):
-    if localizar_dao(matricula):
-        return remover_dao(matricula)
-    return None
+    if localizar(matricula):
+        remover_dao(matricula)
+        return listar()
+    raise AlunoNaoExiste()
 
 def remove_aluno_solicitacao_matricula(matricula):
     from solicitacao_matricula_api import solicitacao_matricula_db
@@ -39,10 +42,11 @@ def remove_aluno_solicitacao_matricula(matricula):
         if solicitacao_matricula.id_aluno == matricula:
             solicitacao_matricula.id_aluno = None
 
-def atualizar(localizador,matricula, nome):
-    if localizar_dao(localizador):
-        return atualizar_dao(localizador, matricula, nome)
-    return None
+def atualizar(localizador, matricula, nome):
+    if localizar(localizador): 
+        atualizar_dao(localizador, matricula, nome)
+        return localizar(matricula)
+    raise AlunoNaoExiste()
 
 
 def atualiza_aluno_solicitacao_matricula(localizador, matricula):

@@ -2,6 +2,7 @@ from flask import Flask, jsonify, request, Blueprint
 from services.aluno_services import *
 from infra.to_dict import to_dict, to_dict_list
 from infra.validacao import validar_campos
+import sqlite3
 
 aluno_app = Blueprint('aluno_app', __name__, template_folder='templates')
 
@@ -29,6 +30,7 @@ def novo_aluno():
 
         except AlunoJaExiste:  
                 return '', 409
+        
 
 
 @aluno_app.route('/aluno/<int:id_aluno>', methods=['GET'])
@@ -61,3 +63,9 @@ def atualiza_aluno(id_aluno):
                 return jsonify(to_dict(atualizado))
         except AlunoJaExiste:
                 return '', 409
+
+        except sqlite3.IntegrityError:
+                return '', 409
+
+        except AlunoNaoExiste:
+                return '', 404

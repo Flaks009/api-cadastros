@@ -2,6 +2,7 @@ from flask import Flask, jsonify, request, Blueprint
 from services.disciplina_ofertada_services import *
 from infra.to_dict import to_dict, to_dict_list
 from infra.validacao import validar_campos
+import sqlite3
 
 disciplina_ofertada_app = Blueprint('disciplina_ofertada_app', __name__, template_folder='templates')
 #id: inteiro, nome: texto, id_disciplina: inteiro, id_professor: inteiro, ano: inteiro, semestre: inteiro, turma: texto, id_curso: inteiro, data: date
@@ -75,4 +76,10 @@ def atualiza_disciplina_ofertada(id_disciplina_ofertada):
                 return jsonify(to_dict_list(atualizado))
 
         except DisciplinaOfertadaJaExiste:  
+                return '', 409
+
+        except DisciplinaOfertadaNaoExiste:
+                return '', 404
+        
+        except sqlite3.IntegrityError:
                 return '', 409

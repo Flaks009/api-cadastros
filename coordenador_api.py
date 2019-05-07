@@ -2,6 +2,7 @@ from flask import Flask, jsonify, request, Blueprint
 from services.coordenador_services import *
 from infra.to_dict import to_dict, to_dict_list
 from infra.validacao import validar_campos
+import sqlite3
 
 coordenador_app = Blueprint('coordenador_app', __name__, template_folder='templates')
 
@@ -61,4 +62,9 @@ def atualiza_coordenador(id_coordenador):
         
         except CoordenadorJaExiste:
                 return '', 409
-    
+        
+        except CoordenadorNaoExiste:
+                return '', 404
+        
+        except sqlite3.IntegrityError:
+                return '', 409
