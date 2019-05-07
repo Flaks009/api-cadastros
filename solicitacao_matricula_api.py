@@ -7,7 +7,7 @@ solicitacao_matricula_app = Blueprint('solicitacao_matricula_app', __name__, tem
 
 #id: inteiro, id_aluno: inteiro, id_disciplina_ofertada: inteiro, dt_solicitacao: date, id_coordenador: inteiro, status: inteiro
 campos = ['id', 'id_aluno', 'id_disciplina_ofertada', 'dt_solicitacao', 'id_coordenador', 'status']
-tipos = [int, int, int, int, int, int]
+tipos = [int, int, int, str, int, int]
 
 @solicitacao_matricula_app.route('/solicitacao_matricula')
 def solicitacao_matricula():
@@ -16,6 +16,7 @@ def solicitacao_matricula():
 
 @solicitacao_matricula_app.route('/solicitacao_matricula', methods = ["POST"])
 def nova_solicitacao_matricula():
+        
         novo = request.get_json()
         id = novo['id']
         id_aluno = novo['id_aluno']

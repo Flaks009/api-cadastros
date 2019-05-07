@@ -1,39 +1,35 @@
 from model.aluno import Aluno
 from infra.log import Log
+from dao.aluno_dao import \
+        listar as listar_dao, \
+        localizar as localizar_dao, \
+        criar as criar_dao, \
+        remover as remover_dao, \
+        atualizar as atualizar_dao
+
 alunos_db = []
 
 class AlunoJaExiste(Exception):
         pass
 
 def listar():
-    return alunos_db
+    return listar_dao()
 
 def cria(id, nome):
-    if localizar(id) != None:
+    if localizar_dao(id) != None:
             raise AlunoJaExiste()    
     log = Log(None)    
     criado = Aluno(id, nome)
-    alunos_db.append(criado)
+    criar_dao(criado)
     log.finalizar(criado)
-    return alunos_db
+    return listar()
 
 def localizar(matricula):
-    if alunos_db == []:
-            return None
-    for aluno in alunos_db:
-        if aluno.id == matricula:
-            return aluno
-    return None
+    return localizar_dao(matricula)
 
 def remover(matricula):
-   
-    for x in range(len(alunos_db)):
-        if alunos_db[x].id == matricula:
-            log = Log(alunos_db[x])    
-            alunos_db.pop(x)
-            remove_aluno_solicitacao_matricula(matricula)
-            log.finalizar(None)
-            return alunos_db
+    if localizar_dao(matricula):
+        return remover_dao(matricula)
     return None
 
 def remove_aluno_solicitacao_matricula(matricula):
@@ -44,18 +40,10 @@ def remove_aluno_solicitacao_matricula(matricula):
             solicitacao_matricula.id_aluno = None
 
 def atualizar(localizador,matricula, nome):
-    for x in range(len(alunos_db)):
-        if alunos_db[x].id == localizador:
-            duplicado = localizar(matricula)
-            if duplicado == None:
-                log = Log(alunos_db[x])      
-                alunos_db[x] = alunos_db[x].atualiza(matricula, nome)
-                atualiza_aluno_solicitacao_matricula(localizador, matricula)
-                log.finalizar(alunos_db[x])
-                return alunos_db[x]
-            else:
-                raise AlunoJaExiste()       
+    if localizar_dao(localizador):
+        return atualizar_dao(localizador, matricula, nome)
     return None
+
 
 def atualiza_aluno_solicitacao_matricula(localizador, matricula):
         from solicitacao_matricula_api import solicitacao_matricula_db

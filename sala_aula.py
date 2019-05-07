@@ -7,7 +7,7 @@ from disciplina_api import disciplina_app
 from disciplina_ofertada_api import disciplina_ofertada_app
 from solicitacao_matricula_api import solicitacao_matricula_app
 from relatorio_api import relatorio_app
-
+from infra.db import cria_db
 
 app = Flask(__name__)
 
@@ -44,8 +44,10 @@ def all():
     'Disciplinas Ofertadas' : to_dict_list(disciplina_ofertada_listar()),
     'Solicitacao Matricula' : to_dict_list(solicitacao_matricula_listar())
     
-}
+    }
     return jsonify(database)
+
+cria_db()
 
 if __name__ == '__main__':
     app.run(host='localhost', port=5000)

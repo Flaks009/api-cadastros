@@ -1,8 +1,7 @@
-#id: inteiro, nome: texto, id_disciplina: inteiro, id_professor: inteiro, ano: inteiro, semestre: inteiro, turma: texto, id_curso: inteiro, data: date
+#id: inteiro, id_disciplina: inteiro, id_professor: inteiro, ano: inteiro, semestre: inteiro, turma: texto, id_curso: inteiro, data: date
 class Disciplina_ofertada():
-    def __init__(self, id, nome, id_disciplina, id_professor, id_curso, ano, semestre, turma, data):
+    def __init__(self, id, id_disciplina, id_professor, id_curso, ano, semestre, turma, data):
         self.__id = id
-        self.__nome = nome
         self.__id_disciplina = id_disciplina
         self.__id_professor = id_professor
         self.__id_curso = id_curso
@@ -11,9 +10,8 @@ class Disciplina_ofertada():
         self.__turma = turma
         self.__data = data
 
-    def atualiza(self, id, nome, id_disciplina, id_professor, id_curso, ano, semestre, turma, data):
+    def atualiza(self, id, id_disciplina, id_professor, id_curso, ano, semestre, turma, data):
         self.__id = id
-        self.__nome = nome
         self.__id_disciplina = id_disciplina
         self.__id_professor = id_professor
         self.__id_curso = id_curso
@@ -26,11 +24,7 @@ class Disciplina_ofertada():
     @property
     def id(self):
         return self.__id
-
-    @property
-    def nome(self):
-        return self.__nome
-    
+        
     @property
     def id_disciplina(self):
         return self.__id_disciplina

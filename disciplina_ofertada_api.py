@@ -5,8 +5,8 @@ from infra.validacao import validar_campos
 
 disciplina_ofertada_app = Blueprint('disciplina_ofertada_app', __name__, template_folder='templates')
 #id: inteiro, nome: texto, id_disciplina: inteiro, id_professor: inteiro, ano: inteiro, semestre: inteiro, turma: texto, id_curso: inteiro, data: date
-campos = ['id', 'nome','id_disciplina', 'id_professor', 'id_curso', 'ano', 'semestre', 'turma', 'data']
-tipos = [int, str, int, int, int, int, int, str, str]
+campos = ['id', 'id_disciplina', 'id_professor', 'id_curso', 'ano', 'semestre', 'turma', 'data']
+tipos = [int, int, int, int, int, int, str, str]
 
 @disciplina_ofertada_app.route('/disciplina_ofertada')
 def disciplina_ofertada():
@@ -15,9 +15,9 @@ def disciplina_ofertada():
 
 @disciplina_ofertada_app.route('/disciplina_ofertada', methods = ["POST"])
 def nova_disciplina_ofertada():
+        print('entrou')
         novo = request.get_json()
         id = novo['id']
-        nome = novo['nome']
         id_disciplina = novo['id_disciplina']
         id_professor = novo['id_professor']
         id_curso = novo['id_curso']
@@ -30,7 +30,7 @@ def nova_disciplina_ofertada():
                 return '', 422
 
         try:
-                disciplina_ofertada = cria(id, nome, id_disciplina, id_professor, id_curso, ano, semestre, turma, data)
+                disciplina_ofertada = cria(id, id_disciplina, id_professor, id_curso, ano, semestre, turma, data)
                 return jsonify(to_dict_list(disciplina_ofertada))
 
         except DisciplinaOfertadaJaExiste:  
@@ -59,7 +59,6 @@ def remove_disciplina_ofertada(id_disciplina_ofertada):
 def atualiza_disciplina_ofertada(id_disciplina_ofertada):
         atualiza = request.get_json()
         id = atualiza['id']
-        nome = atualiza['nome']
         id_disciplina = atualiza['id_disciplina']
         id_professor = atualiza['id_professor']
         id_curso = atualiza['id_curso']
@@ -72,7 +71,7 @@ def atualiza_disciplina_ofertada(id_disciplina_ofertada):
                 return '', 422
 
         try:
-                atualizado = atualizar(id_disciplina_ofertada, id, nome, id_disciplina, id_professor, id_curso, ano, semestre, turma, data)
+                atualizado = atualizar(id_disciplina_ofertada, id, id_disciplina, id_professor, id_curso, ano, semestre, turma, data)
                 return jsonify(to_dict_list(atualizado))
 
         except DisciplinaOfertadaJaExiste:  

@@ -1,5 +1,14 @@
 from model.curso import Curso
 from infra.log import Log
+from dao.curso_dao import \
+        listar as listar_dao, \
+        localizar as localizar_dao, \
+        criar as criar_dao, \
+        remover as remover_dao, \
+        atualizar as atualizar_dao
+
+
+
 cursos_db = []
 
 class CursoJaExiste(Exception):
@@ -7,33 +16,23 @@ class CursoJaExiste(Exception):
 
 
 def listar():
-    return cursos_db
+    return listar_dao()
 
 def cria(id, nome):
-    if localizar(id) != None:
+    if localizar_dao(id) != None:
             raise CursoJaExiste()
     log = Log(None)
     criado = Curso(id, nome)
-    cursos_db.append(criado)
+    criar_dao(criado)
     log.finalizar(criado)
-    return cursos_db
+    return listar()
 
 def localizar(matricula):
-    if cursos_db == []:
-            return None
-    for curso in cursos_db:
-        if curso.id == matricula:
-            return curso
-    return None
+    return localizar_dao(matricula)
 
 def remover(matricula):
-    for x in range(len(cursos_db)):
-        if cursos_db[x].id == matricula:
-            log = Log(cursos_db[x])
-            cursos_db.pop(x)
-            remove_curso_disciplina_ofertada(matricula)
-            log.finalizar(None)
-            return cursos_db
+    if localizar_dao(matricula):
+        return remover_dao(matricula)
     return None
 
 def remove_curso_disciplina_ofertada(matricula):
@@ -44,17 +43,8 @@ def remove_curso_disciplina_ofertada(matricula):
             disciplina_ofertada.id_curso = None
 
 def atualizar(localizador, matricula, nome):
-    for x in range(len(cursos_db)):
-        if cursos_db[x].id == localizador:
-            duplicado = localizar(matricula)
-            if duplicado == None:
-                log = Log(cursos_db[x])
-                cursos_db[x] = cursos_db[x].atualiza(matricula, nome)
-                atualiza_curso_disciplina_ofertada(localizador, matricula)
-                log.finalizar(cursos_db[x])
-                return cursos_db[x]
-            else:
-                raise CursoJaExiste()
+    if localizar_dao(localizador):
+        return atualizar_dao(localizador, matricula, nome)
     return None
 
 def atualiza_curso_disciplina_ofertada(localizador, matricula):

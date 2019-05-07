@@ -1,39 +1,36 @@
 from model.professor import Professor
 from infra.log import Log
+from dao.professor_dao import \
+        listar as listar_dao, \
+        localizar as localizar_dao, \
+        criar as criar_dao, \
+        remover as remover_dao, \
+        atualizar as atualizar_dao
+
 professores_db = []
 
 class ProfessorJaExiste(Exception):
     pass
 
 def listar():
-    return professores_db
+    return listar_dao()
 
 def cria(id, nome):
     if localizar(id) != None:
             raise ProfessorJaExiste()    
     log = Log(None)    
     criado = Professor(id, nome)
-    professores_db.append(criado)
+    criar_dao(criado)
     log.finalizar(criado)
-    return professores_db
+    return listar()
 
 def localizar(matricula):
-    if professores_db == []:
-            return None
-    for p in professores_db:
-        if p.id == matricula:
-            return p
-    return None
+    return localizar_dao(matricula)
 
 
 def remover(matricula):
-    for x in range (len(professores_db)):
-        if professores_db[x].id == matricula:
-            log = Log(professores_db[x])
-            professores_db.pop(x)
-            remove_professor_disciplina_ofertada(matricula)
-            log.finalizar(None)
-            return professores_db
+    if localizar_dao(matricula):
+        return remover_dao(matricula)
     return None
 
 def remove_professor_disciplina_ofertada(matricula):
@@ -44,17 +41,8 @@ def remove_professor_disciplina_ofertada(matricula):
             disciplina_ofertada.id_professor = None
 
 def atualizar(localizador, matricula, nome):
-    for x in range(len(professores_db)):
-        if professores_db[x].id == localizador:
-            duplicado = localizar(matricula)
-            if duplicado == None:
-                log = Log(professores_db[x])
-                professores_db[x] = professores_db[x].atualiza(matricula, nome)
-                atualiza_professores_db_disciplina_ofertada(localizador, matricula)
-                log.finalizar(professores_db[x])
-                return professores_db[x]
-            else:
-                raise ProfessorJaExiste()
+    if localizar(localizador):
+        return atualizar_dao(localizador, matricula, nome)
     return None
 
 def atualiza_professores_db_disciplina_ofertada(localizador, matricula):

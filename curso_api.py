@@ -31,9 +31,9 @@ def novo_curso():
 
 @curso_app.route('/curso/<int:id_curso>', methods = ['GET'])
 def localizar_curso(id_curso):
-        curso = localizar(id_curso)
-        if curso != None:
-                return jsonify(to_dict(curso))
+        localizado = localizar(id_curso)
+        if localizado != None:
+                return jsonify(to_dict(localizado))
         return '', 404
 
 @curso_app.route('/curso/<int:id_curso>/delete', methods=['DELETE'])

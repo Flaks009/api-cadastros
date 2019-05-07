@@ -3,6 +3,15 @@ from services.curso_services import cursos_db
 from services.disciplina_services import disciplinas_db
 from model.disciplina_ofertada import Disciplina_ofertada
 from infra.log import Log
+from dao.disciplina_ofertada_dao import \
+        listar as listar_dao, \
+        localizar as localizar_dao, \
+        criar as criar_dao, \
+        remover as remover_dao, \
+        atualizar as atualizar_dao
+
+
+
 disciplinas_ofertadas_db = []
 
 class DisciplinaOfertadaJaExiste(Exception):
@@ -12,61 +21,42 @@ class ErroReferencia(Exception):
     pass
 
 def listar():
-    return disciplinas_ofertadas_db
+    return listar_dao()
 
-def cria(id, nome, id_disciplina, id_professor, id_curso, ano, semestre, turma, data):
+def cria(id, id_disciplina, id_professor, id_curso, ano, semestre, turma, data):
     if localizar(id) != None:
         raise DisciplinaOfertadaJaExiste()
     log = Log(None)
-    criado = Disciplina_ofertada(id, nome, id_disciplina, id_professor, id_curso, ano, semestre, turma, data)
+    criado = Disciplina_ofertada(id, id_disciplina, id_professor, id_curso, ano, semestre, turma, data)
     valida = valida_nova_disciplina_ofertada(criado)
     if valida:
-        for disciplina_ofertada in disciplinas_ofertadas_db:
-            if disciplina_ofertada.id_disciplina == criado.id_disciplina and disciplina_ofertada.ano == criado.ano and disciplina_ofertada.semestre == criado.semestre and disciplina_ofertada.id_curso == criado.id_curso:
+        for disciplina_ofertada in listar():
+            if disciplina_ofertada[2] == criado.id_disciplina and disciplina_ofertada[5] == criado.ano and disciplina_ofertada[6] == criado.semestre and disciplina_ofertada[4] == criado.id_curso:
                 raise DisciplinaOfertadaJaExiste()
         log.finalizar(criado)
-        disciplinas_ofertadas_db.append(criado)
-        return disciplinas_ofertadas_db
+        criar_dao(criado)
+        return listar()
     raise ErroReferencia()
 
 def valida_nova_disciplina_ofertada(nova_disciplina_ofertada):
-    from services.professor_services import professores_db
-    from services.curso_services import cursos_db
-    from services.disciplina_services import disciplinas_db
-    for disciplina in disciplinas_db:
-        if nova_disciplina_ofertada.id_disciplina == disciplina.id:
-            print("disciplinas_db OK")
-            for professor in professores_db:
-                if nova_disciplina_ofertada.id_professor == professor.id:
-                    print("professores_db OK")
-                    for curso in cursos_db:
-                        if nova_disciplina_ofertada.id_curso == curso.id:
-                            print("cursos_db OK")
-                            return True                                                       
-                        else:
-                            return False
-                else:
-                    return False                
-        else:
+    from dao.professor_dao import localizar as localizar_dao_professor
+    from dao.curso_dao import localizar as localizar_dao_curso
+    from dao.disciplina_dao import localizar as localizar_dao_disciplina
+
+    if localizar_dao_professor(nova_disciplina_ofertada.id_professor):
+        if localizar_dao_curso(nova_disciplina_ofertada.id_curso):
+            if localizar_dao_disciplina(nova_disciplina_ofertada.id_disciplina):
+                return True
             return False
+        return False
+    return False
     
 def localizar(matricula):
-    if disciplinas_ofertadas_db == []:
-            return None
-    for disciplina_ofertada in disciplinas_ofertadas_db:
-        if disciplina_ofertada.id == matricula:
-            return disciplina_ofertada
-    return None
+    return localizar_dao(matricula)
 
 def remover(matricula):
-
-    for x in range (len(disciplinas_ofertadas_db)):
-        if disciplinas_ofertadas_db[x].id == matricula:
-            log = Log(disciplinas_ofertadas_db[x])
-            disciplinas_ofertadas_db.pop(x)
-            remove_disciplina_ofertada_solicitacao_matricula(matricula)
-            log.finalizar(None)
-            return disciplinas_ofertadas_db
+    if localizar_dao(matricula):
+        return remover_dao(matricula)
     return None
 
 def remove_disciplina_ofertada_solicitacao_matricula(matricula):
@@ -76,18 +66,9 @@ def remove_disciplina_ofertada_solicitacao_matricula(matricula):
         if solicitacao_matricula.id_disciplina_ofertada == matricula:
             solicitacao_matricula.id_disciplina_ofertada = None
 
-def atualizar(localizador, nome, matricula, id_disciplina, id_professor, id_curso, ano, semestre, turma, data):
-    for x in range(len(disciplinas_ofertadas_db)):
-        if disciplinas_ofertadas_db[x].id == localizador:
-            duplicado = localizar(matricula)
-            if duplicado == None:
-                log = Log(disciplinas_ofertadas_db[x])
-                disciplinas_ofertadas_db[x] = disciplinas_ofertadas_db[x].atualiza(matricula, nome,id_disciplina, id_professor, id_curso, ano, semestre, turma, data)
-                atualiza_disciplina_ofertada_solicitacao_matricula(localizador, matricula)
-                log.finalizar(disciplinas_ofertadas_db[x])
-                return disciplinas_ofertadas_db
-            else:
-                raise DisciplinaOfertadaJaExiste()
+def atualizar(localizador, matricula, id_disciplina, id_professor, id_curso, ano, semestre, turma, data):
+    if localizar_dao(localizador):
+        return atualizar_dao(localizador, matricula, id_disciplina, id_professor, id_curso, ano, semestre, turma, data)
     return None
 
 def atualiza_disciplina_ofertada_solicitacao_matricula(localizador, matricula):

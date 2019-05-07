@@ -1,0 +1,73 @@
+create_sqls = ["""
+CREATE TABLE IF NOT EXISTS Aluno
+(
+    id INTEGER PRIMARY KEY,
+    nome TEXT NOT NULL
+
+);""", """
+
+CREATE TABLE IF NOT EXISTS Professor
+(
+
+    id INTEGER PRIMARY KEY,
+    nome TEXT NOT NULL
+
+
+);""", """
+
+CREATE TABLE IF NOT EXISTS Coordenador
+(
+
+    id INTEGER PRIMARY KEY,
+    nome TEXT NOT NULL
+
+
+);""", """
+
+CREATE TABLE IF NOT EXISTS Curso
+(
+
+    id INTEGER PRIMARY KEY,
+    nome TEXT NOT NULL
+
+
+);""", """
+
+CREATE TABLE IF NOT EXISTS Disciplina
+(
+
+    id INTEGER PRIMARY KEY,
+    nome TEXT NOT NULL,
+    status TEXT NOT NULL,
+    plano_ensino TEXT NOT NULL,
+    carga_horaria INTEGER NOT NULL,
+    FOREIGN KEY(id_coordenador) REFERENCES Coordenador(id)
+);""", """
+
+CREATE TABLE IF NOT EXISTS Disciplina_ofertada
+(
+
+    id INTEGER PRIMARY KEY,
+    nome TEXT NOT NULL,
+    ano INTEGER NOT NULL,
+    semestre INTEGER NOT NULL,
+    turma INTEGER NOT NULL,
+    data DATE NOT NULL,
+    FOREIGN KEY(id_disciplina) REFERENCES Disciplina(id),
+    FOREIGN KEY(id_professor) REFERENCES Professor(id),
+    FOREIGN KEY(id_curso) REFERENCES Curso(id)
+
+);""", """
+
+CREATE TABLE IF NOT EXISTS Disciplina_ofertada
+(
+
+    id INTEGER PRIMARY KEY,
+    dt_solicitacao date NOT NULL,
+    status INTEGER NOT NULL,
+    FOREIGN KEY(id_aluno) REFERENCES Aluno(id),
+    FOREIGN KEY(id_disciplina_ofertada) REFERENCES Disciplina_ofertada(id)
+    FOREIGN KEY(id_coordenador) REFERENCES Coordenador(id)
+
+);
+"""]

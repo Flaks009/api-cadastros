@@ -138,3 +138,203 @@ Mudanças iniciaram em 2019-04-29 15:54:11.480208.
 Valor original: {'id': 105, 'nome': 'Ramiro'}.
 Valor final: {'id': 10, 'nome': 'Ramiro'}.
 Mudanças finalizaram em 2019-04-29 15:54:11.480497.
+
+Mudanças iniciaram em 2019-05-06 19:11:15.663365.
+Valor original: None.
+Valor final: {'id': 120, 'nome': 'Jkan'}.
+Mudanças finalizaram em 2019-05-06 19:11:15.679216.
+
+Mudanças iniciaram em 2019-05-06 19:37:49.955273.
+Valor original: None.
+Valor final: {'id': 123, 'nome': 'Ori'}.
+Mudanças finalizaram em 2019-05-06 19:37:49.968439.
+
+Mudanças iniciaram em 2019-05-06 19:46:16.032465.
+Valor original: None.
+Valor final: {'id': 123, 'nome': 'Ori'}.
+Mudanças finalizaram em 2019-05-06 19:46:16.045623.
+
+Mudanças iniciaram em 2019-05-06 20:13:36.489807.
+Valor original: None.
+Valor final: {'id': 112, 'nome': 'Orivi'}.
+Mudanças finalizaram em 2019-05-06 20:13:36.503487.
+
+Mudanças iniciaram em 2019-05-06 21:39:01.230310.
+Valor original: None.
+Valor final: {'id': 1234, 'nome': 'Odadkasi'}.
+Mudanças finalizaram em 2019-05-06 21:39:01.248987.
+
+Mudanças iniciaram em 2019-05-06 21:42:19.901786.
+Valor original: None.
+Valor final: {'id': 12, 'nome': 'Orion'}.
+Mudanças finalizaram em 2019-05-06 21:42:19.915944.
+
+Mudanças iniciaram em 2019-05-06 21:43:11.319082.
+Valor original: None.
+Valor final: {'id': 12, 'nome': 'Orion'}.
+Mudanças finalizaram em 2019-05-06 21:43:11.334405.
+
+Mudanças iniciaram em 2019-05-07 10:42:55.745844.
+Valor original: None.
+Valor final: {'id': 1234567, 'nome': 'Planagem'}.
+Mudanças finalizaram em 2019-05-07 10:42:55.758759.
+
+Mudanças iniciaram em 2019-05-07 10:49:18.125386.
+Valor original: None.
+Valor final: {'id': 1234567, 'nome': 'Planagem'}.
+Mudanças finalizaram em 2019-05-07 10:49:18.141194.
+
+Mudanças iniciaram em 2019-05-07 10:50:13.510802.
+Valor original: None.
+Valor final: {'id': 9, 'nome': 'Bruno'}.
+Mudanças finalizaram em 2019-05-07 10:50:13.525313.
+
+Mudanças iniciaram em 2019-05-07 10:50:45.741115.
+Valor original: None.
+Valor final: {'id': 901, 'nome': 'D.A.D'}.
+Mudanças finalizaram em 2019-05-07 10:50:45.755874.
+
+Mudanças iniciaram em 2019-05-07 11:17:13.981548.
+Valor original: None.
+Valor final: {'id': 210, 'nome': 'Ellen'}.
+Mudanças finalizaram em 2019-05-07 11:17:13.995533.
+
+Mudanças iniciaram em 2019-05-07 11:20:38.131555.
+Valor original: None.
+Valor final: {'carga_horaria': 90, 'id': 170, 'id_coordenador': 210, 'nome': 'Estrutura', 'plano_ensino': 'ndskjandkjsnkjdnksands', 'status': 'ativa'}.
+Mudanças finalizaram em 2019-05-07 11:20:38.145789.
+
+Mudanças iniciaram em 2019-05-07 11:34:11.659559.
+Valor original: None.
+Valor final: {'carga_horaria': 90, 'id': 170, 'id_coordenador': 210, 'nome': 'Estrutura', 'plano_ensino': 'ndskjandkjsnkjdnksands', 'status': 'ativa'}.
+Mudanças finalizaram em 2019-05-07 11:34:11.674284.
+
+Mudanças iniciaram em 2019-05-07 11:49:45.837507.
+Valor original: None.
+Valor final: {'id': 210, 'nome': 'Ellen'}.
+Mudanças finalizaram em 2019-05-07 11:49:45.850779.
+
+Mudanças iniciaram em 2019-05-07 11:49:56.383823.
+Valor original: None.
+Valor final: {'id': 210, 'nome': 'Ellen'}.
+Mudanças finalizaram em 2019-05-07 11:49:56.397500.
+
+Mudanças iniciaram em 2019-05-07 11:50:15.350226.
+Valor original: None.
+Valor final: {'id': 20, 'nome': 'Loqllen'}.
+Mudanças finalizaram em 2019-05-07 11:50:15.363500.
+
+Mudanças iniciaram em 2019-05-07 11:51:12.537883.
+Valor original: None.
+Valor final: {'id': 172, 'nome': 'Victor'}.
+Mudanças finalizaram em 2019-05-07 11:51:12.551863.
+
+Mudanças iniciaram em 2019-05-07 11:51:23.177148.
+Valor original: None.
+Valor final: {'carga_horaria': 90, 'id': 170, 'id_coordenador': 210, 'nome': 'Estrutura', 'plano_ensino': 'ndskjandkjsnkjdnksands', 'status': 'ativa'}.
+Mudanças finalizaram em 2019-05-07 11:51:23.190563.
+
+Mudanças iniciaram em 2019-05-07 12:00:33.347830.
+Valor original: None.
+Valor final: {'id': 172, 'nome': 'Orlandor'}.
+Mudanças finalizaram em 2019-05-07 12:00:33.362348.
+
+Mudanças iniciaram em 2019-05-07 12:00:47.011496.
+Valor original: None.
+Valor final: {'id': 17, 'nome': 'OMessiasr'}.
+Mudanças finalizaram em 2019-05-07 12:00:47.025807.
+
+Mudanças iniciaram em 2019-05-07 12:01:18.498287.
+Valor original: None.
+Valor final: {'id': 7, 'nome': 'Victor'}.
+Mudanças finalizaram em 2019-05-07 12:01:18.512017.
+
+Mudanças iniciaram em 2019-05-07 12:01:39.082550.
+Valor original: None.
+Valor final: {'id': 1, 'nome': 'Futebola'}.
+Mudanças finalizaram em 2019-05-07 12:01:39.094757.
+
+Mudanças iniciaram em 2019-05-07 12:02:07.513127.
+Valor original: None.
+Valor final: {'carga_horaria': 90, 'id': 170, 'id_coordenador': 172, 'nome': 'Estrutura', 'plano_ensino': 'ndskjandkjsnkjdnksands', 'status': 'ativa'}.
+Mudanças finalizaram em 2019-05-07 12:02:07.527653.
+
+Mudanças iniciaram em 2019-05-07 12:39:18.525203.
+Valor original: None.
+Valor final: {'id': 1, 'nome': 'Bruno'}.
+Mudanças finalizaram em 2019-05-07 12:39:18.540595.
+
+Mudanças iniciaram em 2019-05-07 12:39:45.758680.
+Valor original: None.
+Valor final: {'id': 18, 'nome': 'Victor'}.
+Mudanças finalizaram em 2019-05-07 12:39:45.772137.
+
+Mudanças iniciaram em 2019-05-07 12:40:03.578723.
+Valor original: None.
+Valor final: {'id': 19, 'nome': 'Ellen'}.
+Mudanças finalizaram em 2019-05-07 12:40:03.593117.
+
+Mudanças iniciaram em 2019-05-07 12:41:07.375797.
+Valor original: None.
+Valor final: {'id': 1234, 'nome': 'Medicina'}.
+Mudanças finalizaram em 2019-05-07 12:41:07.389951.
+
+Mudanças iniciaram em 2019-05-07 12:41:33.664298.
+Valor original: None.
+Valor final: {'carga_horaria': 90, 'id': 170, 'id_coordenador': 19, 'nome': 'Estrutura', 'plano_ensino': 'ndskjandkjsnkjdnksands', 'status': 'ativa'}.
+Mudanças finalizaram em 2019-05-07 12:41:33.679302.
+
+Mudanças iniciaram em 2019-05-07 12:53:04.954418.
+Valor original: None.
+Valor final: {'ano': 2018, 'data': '21/01/2017', 'id': 1098, 'id_curso': 1234, 'id_disciplina': 170, 'id_professor': 18, 'nome': 'Ext', 'semestre': 3, 'turma': '3C'}.
+Mudanças finalizaram em 2019-05-07 12:53:04.957231.
+
+Mudanças iniciaram em 2019-05-07 13:38:34.126103.
+Valor original: None.
+Valor final: {'dt_solicitacao': '21/12/2019', 'id': 109, 'id_aluno': 1, 'id_coordenador': 19, 'id_disciplina_ofertada': 1098, 'status': 'matriculado'}.
+Mudanças finalizaram em 2019-05-07 13:38:34.128435.
+
+Mudanças iniciaram em 2019-05-07 13:39:19.858495.
+Valor original: None.
+Valor final: {'dt_solicitacao': '21/12/2019', 'id': 109, 'id_aluno': 1, 'id_coordenador': 19, 'id_disciplina_ofertada': 1098, 'status': 'matriculado'}.
+Mudanças finalizaram em 2019-05-07 13:39:19.860735.
+
+Mudanças iniciaram em 2019-05-07 13:53:14.697735.
+Valor original: None.
+Valor final: {'ano': 2018, 'data': '21/01/2017', 'id': 1098, 'id_curso': 1234, 'id_disciplina': 170, 'id_professor': 18, 'semestre': 3, 'turma': '3C'}.
+Mudanças finalizaram em 2019-05-07 13:53:14.699908.
+
+Mudanças iniciaram em 2019-05-07 13:54:00.057811.
+Valor original: None.
+Valor final: {'id': 1, 'nome': 'Bruno'}.
+Mudanças finalizaram em 2019-05-07 13:54:00.072754.
+
+Mudanças iniciaram em 2019-05-07 13:54:10.428667.
+Valor original: None.
+Valor final: {'id': 18, 'nome': 'Victor'}.
+Mudanças finalizaram em 2019-05-07 13:54:10.443461.
+
+Mudanças iniciaram em 2019-05-07 13:54:19.295099.
+Valor original: None.
+Valor final: {'id': 19, 'nome': 'Ellen'}.
+Mudanças finalizaram em 2019-05-07 13:54:19.307716.
+
+Mudanças iniciaram em 2019-05-07 13:54:29.933744.
+Valor original: None.
+Valor final: {'id': 1234, 'nome': 'Medicina'}.
+Mudanças finalizaram em 2019-05-07 13:54:29.948991.
+
+Mudanças iniciaram em 2019-05-07 13:54:52.560202.
+Valor original: None.
+Valor final: {'carga_horaria': 90, 'id': 170, 'id_coordenador': 19, 'nome': 'Estrutura', 'plano_ensino': 'ndskjandkjsnkjdnksands', 'status': 'ativa'}.
+Mudanças finalizaram em 2019-05-07 13:54:52.574716.
+
+Mudanças iniciaram em 2019-05-07 13:56:37.736384.
+Valor original: None.
+Valor final: {'ano': 2018, 'data': '21/12/17', 'id': 1098, 'id_curso': 1234, 'id_disciplina': 170, 'id_professor': 18, 'semestre': 3, 'turma': '3V'}.
+Mudanças finalizaram em 2019-05-07 13:56:37.738640.
+
+Mudanças iniciaram em 2019-05-07 13:56:50.326022.
+Valor original: None.
+Valor final: {'dt_solicitacao': '21/12/2019', 'id': 109, 'id_aluno': 1, 'id_coordenador': 19, 'id_disciplina_ofertada': 1098, 'status': 'matriculado'}.
+Mudanças finalizaram em 2019-05-07 13:56:50.327777.
